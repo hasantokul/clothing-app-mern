@@ -31,7 +31,7 @@ const productsSchema = new mongoose.Schema({
   },
   brand: {
     type: String,
-    required: false,
+    required: true,
   },
   image_url: {
     type: String,
@@ -41,13 +41,13 @@ const productsSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  variation_color_0: {
+  variation_0_color: {
     type: String,
-    required: false,
+    required: true
   },
-  variation_color_1: {
+  variation_1_color: {
     type: String,
-    required: false,
+    required: true
   },
 });
 

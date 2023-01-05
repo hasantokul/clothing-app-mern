@@ -30,8 +30,8 @@ async function startServer() {
   await mongoConnect();
 
   // loading products & categories data to mongo db just for once
-  // await loadProductsData(); 
-  await loadCategoriesData();
+  // await loadProductsData();
+  // await loadCategoriesData();
 
   server.listen(PORT, () => {
     console.log(`Listening on port ${PORT}...`);
