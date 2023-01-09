@@ -7,9 +7,13 @@
         margin: auto;
         height: 100%;
         .nav-items {
+            padding: 0 30px;
             height: 70px;
             display: flex;
             border-bottom: 1px solid rgb(163, 163, 163);
+            .fa-bars {
+              display: none;  
+            }
             .nav-logo {
                 width: 20%;
                 height: 100%;
@@ -83,7 +87,7 @@
                         position: absolute;
                         top: 100%;
                         left: 0;
-                        min-height: 200px;
+                        height: 200px;
                         border: 1px solid lightgray;
                         border-top: none;
                         padding: 20px 40px;
@@ -102,8 +106,8 @@
                                 align-items: center;
                                 text-align: center;
                                 .category-image {
-                                    width: 100px;
-                                    height: 150px;
+                                    width: 90px;
+                                    height: 120px;
                                 }
                                 .category-title {
                                     margin-top: 10px;
@@ -115,6 +119,98 @@
                         border-bottom: 1.5px solid rgb(92, 92, 92);
                         .category-dropdown {
                             display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 950px) {
+    .navbar {
+        height: auto;
+        .nav-container {
+            width: 100%;
+            .nav-items {
+                padding: 0 20px;
+                height: 140px;
+                position: relative;
+                display: flex;
+                .fa-bars {
+                    display: block;
+                    position: absolute;
+                    left: 15px;
+                    top: 20px;
+                    font-size: 28px;
+                    cursor: pointer;
+                  }
+                .nav-logo {
+                    display: flex;
+                    justify-content: center;
+                    height: 50%;
+                    width: 100%;
+                }
+                .nav-search {
+                    border-top: 1px solid gray;
+                    height: 50%;
+                    width: 100%;
+                    padding: 0 70px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .input-wrapper {
+                        width: 100%;
+                        margin: 0 auto;
+                    }
+                }
+                .nav-basket {
+                    right: 40px;
+                    position: absolute;
+                    height: 50%;
+                }
+                .nav-user {
+                    right: 80px;
+                    position: absolute;
+                    height: 50%;
+                }
+            }
+            .category-menu {
+                height: auto;
+                padding: 0 10px;
+                width: 100%;
+                .categories-list {
+                    flex-direction: column;
+                    .category {
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        padding: 5px 30px;
+                        border-bottom: 1px solid lightgray;
+                        &:last-child {
+                            border: none;
+                        }
+                        span {
+                            padding: 10px 0;
+                        }
+                        .category-dropdown {
+                            position: relative;
+                            border: 1px solid lightgray;
+                            padding: 0;
+                            height: auto;
+                            .sub-categories-list {
+                                flex-direction: column;
+                                justify-content: flex-start;
+                                .sub-category {
+                                    padding: 10px;
+                                    height: auto;
+                                }
+                            }
+                        }
+                        &:hover {
+                            border-bottom: none;
                         }
                     }
                 }

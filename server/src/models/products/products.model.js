@@ -23,11 +23,11 @@ function loadProductsData() {
     )
       .pipe(csv({}))
       .on("data", async (data) => {
-          if (count <= 150 && data.brand !== "") {
+          if (count < 200 && data.brand !== "" && data.name.length <= 40 && data.variation_0_color !== "" && data.variation_0_color !== "") {
             count++;
             await productsDB.updateOne(
               { name: data.name },
-              { ...data },
+              { ...data, quantity: 100 },
               { upsert: true }
             );
           } else {

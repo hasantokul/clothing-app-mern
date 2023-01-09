@@ -4,6 +4,7 @@ import "./navigation.style.scss";
 
 export default function Navigation() {
   const [categories, setCategories] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const getCategories = useCallback(async () => {
     const response = await fetch("http://localhost:8000/categories");
@@ -15,11 +16,37 @@ export default function Navigation() {
     getCategories();
   }, [getCategories]);
 
+  const toggleHandler = () => {
+    setMenuOpen(!menuOpen);
+  }
+
+  useEffect(() => {
+    if (window.innerWidth < 950) {
+      if(!menuOpen) {
+        document.querySelector(".category-menu").style.display = "none"
+      } else {
+        document.querySelector(".category-menu").style.display = "block"
+      }
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 950) {
+        document.querySelector(".category-menu").style.display = "block";
+      } else {
+        document.querySelector(".category-menu").style.display = "none";
+        setMenuOpen(false);
+      }
+    })
+  },[window.innerWidth]);
+
   return (
     <Fragment>
       <div className="navbar">
         <div className="nav-container">
           <div className="nav-items">
+            <i onClick={toggleHandler} class="fa-solid fa-bars"></i>
             <div className="nav-logo">
               <h1><Link to="/">MORBIN</Link></h1>
             </div>
@@ -27,7 +54,7 @@ export default function Navigation() {
               <div className="input-wrapper">
                 <input className="search-field" />
                 <i class="fa-solid fa-magnifying-glass"></i>
-              </div>
+            </div>
             </div>
             <div className="nav-user">
               <i class="fa-solid fa-user"></i>

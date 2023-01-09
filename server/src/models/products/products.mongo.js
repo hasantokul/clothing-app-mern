@@ -37,9 +37,9 @@ const productsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  variation_image: {
+  variation_0_image: {
     type: String,
-    required: false,
+    required: true,
   },
   variation_0_color: {
     type: String,
@@ -49,6 +49,14 @@ const productsSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  is_new: {
+    type: Boolean,
+    required: true
+  },
+  quantity: {
+    type: Number,
+    required: true
+  }
 });
 
 module.exports = mongoose.model("Products", productsSchema);

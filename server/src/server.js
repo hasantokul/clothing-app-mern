@@ -6,8 +6,8 @@ require('dotenv').config();
 
 const PORT = 8000;
 const MONGO_URL = process.env.MONGO_URL;
-const {loadProductsData} = require("./models/products/products.model");
-const {loadCategoriesData} = require("./models/categories/categories.model");
+// const {loadProductsData} = require("./models/products/products.model");
+// const {loadCategoriesData} = require("./models/categories/categories.model");
 
 //MONGO DB CONNECTION
 mongoose.set('strictQuery', false)
