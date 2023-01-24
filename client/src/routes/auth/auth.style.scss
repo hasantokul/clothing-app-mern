@@ -1,0 +1,14 @@
+.auth {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 20px;
+    
+}
+
+@media screen and (max-width: 950px) {
+    .auth {
+        flex-direction: column;
+        padding: 5px;
+    }
+}

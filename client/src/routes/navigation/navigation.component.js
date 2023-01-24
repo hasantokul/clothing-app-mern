@@ -1,10 +1,13 @@
-import React, { useEffect, useState, useCallback, Fragment } from "react";
+import React, { useEffect, useState, useCallback, Fragment, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import UserMenu from "../../components/user-menu/user-menu.component";
+import { UserContext } from "../../contexts/user/user.context";
 import "./navigation.style.scss";
 
 export default function Navigation() {
   const [categories, setCategories] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const getCategories = useCallback(async () => {
     const response = await fetch("http://localhost:8000/categories");
@@ -18,6 +21,11 @@ export default function Navigation() {
 
   const toggleHandler = () => {
     setMenuOpen(!menuOpen);
+  }
+
+  const userMenuHandler = () => {
+    console.log(userMenuOpen);
+    setUserMenuOpen(!userMenuOpen);
   }
 
   useEffect(() => {
@@ -34,6 +42,7 @@ export default function Navigation() {
     window.addEventListener("resize", () => {
       if (window.innerWidth >= 950) {
         document.querySelector(".category-menu").style.display = "block";
+        setMenuOpen(true);
       } else {
         document.querySelector(".category-menu").style.display = "none";
         setMenuOpen(false);
@@ -57,7 +66,8 @@ export default function Navigation() {
             </div>
             </div>
             <div className="nav-user">
-              <i class="fa-solid fa-user"></i>
+              <i onClick={userMenuHandler} class="fa-solid fa-user"></i>
+              { userMenuOpen && <UserMenu/> }
             </div>
             <div className="nav-basket">
               <i class="fa-solid fa-cart-shopping"></i>

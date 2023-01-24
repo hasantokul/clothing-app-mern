@@ -1,0 +1,48 @@
+.sign-up-container {
+    width: 50%;
+    padding: 30px 60px;
+    .form {
+        margin-top: 30px;
+        .field-label {
+            display: block;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .field-options {
+            width: 400px;
+            padding: 10px;
+        }
+        .field-input {
+            padding: 5px;
+            width: 400px;
+        }
+        .btn {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            background: black;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .sign-up-container {
+        width: 100%;
+        padding: 30px 10px;
+        .from-title {
+            font-size: 15px;
+        }
+        .form {
+        .field-options {
+            width: 100%;
+            padding: 10px;
+        }
+        .field-input {
+            padding: 5px;
+            width: 100%;
+        }
+    }
+    }
+}

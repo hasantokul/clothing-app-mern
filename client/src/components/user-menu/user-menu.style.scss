@@ -1,0 +1,40 @@
+.user-menu {
+    position: absolute;
+    top: 60px;
+    right: -60px;
+    width: 200px;
+    height: auto;
+    padding: 5px;
+    background-color: white;
+    z-index: 2;
+    border: 1px solid gray;
+    .menu-header {
+        padding: 10px;
+        text-align: center;
+        span {
+            color: rgb(65, 65, 65);
+        }
+    }
+    .user-list {
+        list-style: none;
+        width: 100%;
+        height: auto;
+        .user-item {
+            width: 100%;
+            height: 40px;
+            padding: 3px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            border-top: 1px solid gray;
+            color: rgb(85, 85, 85);
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(228, 228, 228);
+            }
+            i {
+                margin-right: 20px;
+            }
+        }
+    }
+}

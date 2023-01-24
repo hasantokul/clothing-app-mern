@@ -1,0 +1,53 @@
+.home {
+    width: 100%;
+    height: auto;
+
+    .carousel {
+        height:450px;
+        width: 100%;
+        background-color: rgb(48, 48, 48);
+        position: relative;
+        .arrow {
+            position: absolute;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .fa-arrow-left {
+            top: 200px;
+            left: 30px;
+        }
+        .fa-arrow-right {
+            top: 200px;
+            right: 30px;
+        }
+        .carousel-container {
+            width: 1000px;
+            height: 100%;
+            margin: auto;
+            background-color: rgb(255, 255, 255);
+            .carousel-slider {
+                height: 100%;
+                width: 100%;
+                .slide-container {
+                    width: 100%;
+                    height: 100%;
+                    .slide {
+                        width: 100%;
+                        height: 450px;
+                    }
+                    #slide-1 {
+                        background: url("../../../public/assets/carousel-img/pexels-ge-yonk-1152077.jpg") center center/cover;
+                    }
+                    #slide-2 {
+                        background: url("../../../public/assets/carousel-img/pexels-web-donut-19090.jpg") center center/cover;
+                    }
+                    #slide-3 {
+                        // background: url("../../../public/assets/carousel-img/pexels-mnz-1639729 (1).jpg") center center/cover;
+                    }
+                }
+            }
+        }
+    }
+}
