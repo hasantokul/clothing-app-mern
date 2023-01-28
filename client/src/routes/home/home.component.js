@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 export default function Home() {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 1000,
     slidesToShow: 1,

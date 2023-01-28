@@ -50,6 +50,30 @@ export default function Navigation() {
     })
   },[window.innerWidth]);
 
+  useEffect(() => {
+    var scrollBefore = 0;
+    window.addEventListener("scroll", () => {
+      const scrolled = window.scrollY;
+      if (window.pageYOffset) {
+        document.querySelector(".navbar").style.position = "fixed";
+        document.querySelector(".navbar").style.zIndex = "2";
+        if (scrollBefore <= scrolled) {
+          scrollBefore = scrolled
+         document.querySelector(".navbar").style.transform = "translateY(-100%)";
+         document.querySelector(".navbar").style.pointerEvents = "none";
+        } else if (scrollBefore > scrolled) {
+          scrollBefore = scrolled
+          console.log("scrolled to up");
+          document.querySelector(".navbar").style.transform = "none";
+          document.querySelector(".navbar").style.pointerEvents = "all";
+        }
+      } else {
+        document.querySelector(".navbar").style.position = "initial";
+        document.querySelector(".navbar").style.zIndex = "1";
+      }
+    })
+  })
+
   return (
     <Fragment>
       <div className="navbar">

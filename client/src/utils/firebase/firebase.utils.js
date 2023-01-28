@@ -6,8 +6,10 @@ import {
   sendEmailVerification,
   signInWithEmailAndPassword,
   signOut,
+  GoogleAuthProvider, 
+  signInWithPopup
 } from "firebase/auth";
-import { doc, setDoc, getFirestore } from "firebase/firestore";
+import { doc, setDoc, getFirestore, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBXWaJ3IcVKv5Kxo98wEeIxiYMLG2uRhhI",
@@ -24,6 +26,17 @@ initializeApp(firebaseConfig);
 
 const auth = getAuth();
 const db = getFirestore();
+const googleProvider = new GoogleAuthProvider();
+
+export const signInWithGoogle = async () => {
+  const {user} = await signInWithPopup(auth, googleProvider);
+  console.log(user);
+  const userSnapShot = await getDoc(doc(db, "users", user.email));
+  if (!userSnapShot.exists()) {
+    console.log("user doesn't exists")
+    await setDoc(doc(db, "users", user.email), {displayName : user.displayName});
+  }
+}
 
 export const signUpUser = async (email, password, formFields) => {
   try {

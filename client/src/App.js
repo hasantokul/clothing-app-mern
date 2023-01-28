@@ -4,6 +4,7 @@ import Auth from "./routes/auth/auth.component";
 import Category from "./routes/category/category.component";
 import Home from "./routes/home/home.component";
 import Navigation from "./routes/navigation/navigation.component";
+import Product from "./routes/product/product.component";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="auth" element={<Auth/>}/>
           <Route path="/categories/:id" element={<Category />} />
+          <Route path="/products/:id" element={<Product/>}/>
         </Route>
       </Routes>
     </Fragment>

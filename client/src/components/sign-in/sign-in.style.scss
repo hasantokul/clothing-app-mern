@@ -16,13 +16,23 @@
             padding: 5px;
             width: 400px;
         }
-        .btn {
-            display: block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            color: white;
-            background: black;
-            cursor: pointer;
+        .btn-group {
+            display: flex;
+            .btn {
+                display: block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                color: white;
+                cursor: pointer;
+                border: none;
+            }
+            .btn-dark {
+                background: black;
+            }
+            .btn-blue {
+                background: rgb(0, 107, 230);
+                margin-left: 15px;
+            }
         }
     }
 }

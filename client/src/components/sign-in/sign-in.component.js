@@ -1,6 +1,6 @@
 import { async } from "@firebase/util";
 import React, { useState } from "react";
-import { signInUser } from "../../utils/firebase/firebase.utils";
+import { signInUser, signInWithGoogle } from "../../utils/firebase/firebase.utils";
 import "./sign-in.style.scss";
 export default function SignIn() {
   const defaultFormFileds = {
@@ -17,8 +17,18 @@ export default function SignIn() {
   const {email, password} = formFields;
 
   const onSubmitHandler = async (e) => {
+    console.log("submit fired");
     e.preventDefault();
     await signInUser(email, password);
+  }
+
+  const googleSignInHandler = async (e) => {
+    e.preventDefault();
+    await signInWithGoogle().then((result) => {
+      console.log(result, "google signin successfull");
+      window.location.href = "/";
+    });
+
   }
 
   
@@ -31,7 +41,10 @@ export default function SignIn() {
 
         <label className="field-label">Password</label>
         <input onChange={onChangeHandler} required name="password" type="password" className="field-input" />
-        <button className="btn btn-dark" type="submit">Sign In</button>
+        <div className="btn-group">
+          <button className="btn btn-dark" type="submit">Sign In</button>
+          <button onClick={googleSignInHandler} className="btn btn-blue">Sign In with Google</button>
+        </div>
       </form>
     </div>
   );
