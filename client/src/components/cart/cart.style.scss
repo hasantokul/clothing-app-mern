@@ -1,0 +1,86 @@
+.cart-dropdown {
+    width: 280px;
+    height: 280px;
+    border: 1px solid gray;
+    position: absolute;
+    right: -30px;
+    top: 60px;
+    z-index: 2;
+    background-color: white;
+    overflow-y: scroll;
+    .items-list {
+        width: 100%;
+        height: auto;
+        list-style: none;
+        .cart-item {
+            width: 100%;
+            height: auto;
+            display: flex;
+            border-bottom: 1px solid rgb(192, 192, 192);
+            padding: 2px;
+            &:last-child {
+                border-bottom: none;
+            }
+            .item-img {
+                width: 80px;
+                height: auto;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .item-info {
+                display: flex;
+                flex-direction: column;
+                padding: 5px;
+                height: auto;
+                flex-grow: 1;
+                .item-name {
+                    font-size: 11px;
+                    margin-bottom: 5px;
+                }
+                .item-price {
+                    font-size: 11px;
+                    margin-bottom: 5px;
+                    font-weight: bold;
+                }
+                .item-quantity {
+                    font-size: 10px;
+                    margin-bottom: 10px;
+                    color: rgb(37, 37, 37);
+                }
+                .quantity-switcher {
+                    display: flex;
+                    i {
+                        font-size: 13px;
+                        cursor: pointer;
+                        &:hover {
+                            color: rgb(184, 184, 184);
+                        }
+                        &:first-child {
+                            margin-right: 10px;
+                        }
+                    
+                    }
+                }
+            }
+            .btn-remove {
+                width: 20px;
+                padding: 5px;
+                height: auto;
+                display: flex;
+                align-items: center;
+                i {
+                    font-size: 12px;
+                    cursor: pointer;
+                    &:hover {
+                        color: rgb(184, 184, 184);
+                    }
+                }
+            }
+        }
+    }
+}

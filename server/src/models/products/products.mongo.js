@@ -41,6 +41,10 @@ const productsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  variation_1_image: {
+    type: String,
+    required: true,
+  },
   variation_0_color: {
     type: String,
     required: true
@@ -55,6 +59,10 @@ const productsSchema = new mongoose.Schema({
   },
   quantity: {
     type: Number,
+    required: true
+  },
+  pid: {
+    type: String,
     required: true
   }
 });

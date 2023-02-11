@@ -1,4 +1,4 @@
-const { getProductsByCategory } = require("../../models/products/products.model")
+const { getProductsByCategory, getProduct } = require("../../models/products/products.model")
 
 
 async function httpGetProductsByCategory(req, res) {
@@ -6,4 +6,9 @@ async function httpGetProductsByCategory(req, res) {
     return res.json(await getProductsByCategory(id));
 }
 
-module.exports = {httpGetProductsByCategory}
+async function httpGetProduct(req, res) {
+    const pid = req.params.pid
+    return res.json(await getProduct(pid));
+}
+
+module.exports = {httpGetProductsByCategory, httpGetProduct}

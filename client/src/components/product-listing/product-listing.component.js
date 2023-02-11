@@ -60,7 +60,7 @@ export default function ProductListing() {
   return (
     <div className="product-listing">
       {products.map((product) => (
-        <div className="product-card">
+        <div onClick={() => window.location.href = `/products/${product.pid}`} className="product-card">
           <div
             className="product-img"
             style={{

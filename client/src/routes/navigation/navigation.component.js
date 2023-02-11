@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback, Fragment, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import Cart from "../../components/cart/cart.component";
 import UserMenu from "../../components/user-menu/user-menu.component";
 import { UserContext } from "../../contexts/user/user.context";
 import "./navigation.style.scss";
@@ -8,6 +9,7 @@ export default function Navigation() {
   const [categories, setCategories] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
   const getCategories = useCallback(async () => {
     const response = await fetch("http://localhost:8000/categories");
@@ -24,8 +26,11 @@ export default function Navigation() {
   }
 
   const userMenuHandler = () => {
-    console.log(userMenuOpen);
     setUserMenuOpen(!userMenuOpen);
+  }
+
+  const cartOpenHandler = () => {
+    setCartOpen(!cartOpen)
   }
 
   useEffect(() => {
@@ -55,6 +60,7 @@ export default function Navigation() {
     window.addEventListener("scroll", () => {
       const scrolled = window.scrollY;
       if (window.pageYOffset) {
+        document.querySelector(".category-menu").style.display = "none"
         document.querySelector(".navbar").style.position = "fixed";
         document.querySelector(".navbar").style.zIndex = "2";
         if (scrollBefore <= scrolled) {
@@ -63,11 +69,11 @@ export default function Navigation() {
          document.querySelector(".navbar").style.pointerEvents = "none";
         } else if (scrollBefore > scrolled) {
           scrollBefore = scrolled
-          console.log("scrolled to up");
           document.querySelector(".navbar").style.transform = "none";
           document.querySelector(".navbar").style.pointerEvents = "all";
         }
       } else {
+        document.querySelector(".category-menu").style.display = "block"
         document.querySelector(".navbar").style.position = "initial";
         document.querySelector(".navbar").style.zIndex = "1";
       }
@@ -94,7 +100,8 @@ export default function Navigation() {
               { userMenuOpen && <UserMenu/> }
             </div>
             <div className="nav-basket">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i onClick={cartOpenHandler} class="fa-solid fa-cart-shopping"></i>
+              { cartOpen && <Cart/>}
             </div>
           </div>
           <div className="category-menu">

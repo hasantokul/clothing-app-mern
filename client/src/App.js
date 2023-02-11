@@ -14,7 +14,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="auth" element={<Auth/>}/>
           <Route path="/categories/:id" element={<Category />} />
-          <Route path="/products/:id" element={<Product/>}/>
+          <Route path="/products/:pid" element={<Product/>}/>
         </Route>
       </Routes>
     </Fragment>

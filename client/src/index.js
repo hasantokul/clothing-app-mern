@@ -7,18 +7,21 @@ import {BrowserRouter} from "react-router-dom"
 import { FilterProvider } from './contexts/filter/filter.context';
 import { LocationProvider } from './contexts/location/location.context';
 import { UserProvider } from './contexts/user/user.context';
+import { CartProvider } from './contexts/cart/cart.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <FilterProvider>
-        <LocationProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </LocationProvider>
-      </FilterProvider>
+      <CartProvider>
+        <FilterProvider>
+          <LocationProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </LocationProvider>
+        </FilterProvider>
+      </CartProvider>
     </UserProvider>
   </React.StrictMode>
 );

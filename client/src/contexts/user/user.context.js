@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
 
   const unsubscribeAuthState = authStateChangeListener((user) => {
-    console.log(user)
+    // console.log(user)
     if (user && user.emailVerified) {
       setCurrentUser(user);
     }
@@ -19,7 +19,7 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     unsubscribeAuthState();
-    console.log("auth state changed, current user: ", currentUser);
+    // console.log("auth state changed, current user: ", currentUser);
   }, [unsubscribeAuthState]);
 
   const value = {

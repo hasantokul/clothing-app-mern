@@ -6,11 +6,10 @@ import "./user-menu.style.scss";
 
 export default function UserMenu() {
   const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
   
   const signOutHandler = async () => {
     await signOutUser(currentUser);
-    window.location.href = "auth"
+    window.location.href = "/auth"
   }
   return (
     <div className="user-menu">
@@ -33,7 +32,7 @@ export default function UserMenu() {
         </Fragment>
       ) : (
         <ul className="user-list">
-          <li style={{borderTop: "none", justifyContent: "center"}} className="user-item"><Link to="auth">Sign In</Link></li>
+          <li style={{borderTop: "none", justifyContent: "center"}} className="user-item"><Link to="/auth">Sign In</Link></li>
         </ul>
       )}
     </div>

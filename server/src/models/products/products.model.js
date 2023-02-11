@@ -16,6 +16,8 @@ function loadProductsData() {
     "women",
   ];
 
+  let prodCount = 0;
+
   filesArray.forEach((fileName) => {
     let count = 0;
     fs.createReadStream(
@@ -23,11 +25,11 @@ function loadProductsData() {
     )
       .pipe(csv({}))
       .on("data", async (data) => {
-          if (count < 200 && data.brand !== "" && data.name.length <= 40 && data.variation_0_color !== "" && data.variation_0_color !== "") {
+          if (count < 200 && data.brand !== "" && data.name.length <= 40 && data.variation_0_color !== "" && data.variation_1_color !== "" && data.variation_0_image !== "" && data.variation_1_image !== "") {
             count++;
             await productsDB.updateOne(
               { name: data.name },
-              { ...data, quantity: 100 },
+              { ...data, quantity: 100, pid : data.name.replace(/ /g, "_").toLowerCase() },
               { upsert: true }
             );
           } else {
@@ -50,7 +52,13 @@ async function getProductsByCategory(id) {
   return products
 }
 
+async function getProduct(pid) {
+  const product = await productsDB.findOne({pid : pid})
+  return product;
+}
+
 module.exports = {
   loadProductsData,
-  getProductsByCategory
+  getProductsByCategory,
+  getProduct
 };
