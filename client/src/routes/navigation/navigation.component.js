@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback, Fragment, useContext } from "r
 import { Link, Outlet } from "react-router-dom";
 import Cart from "../../components/cart/cart.component";
 import UserMenu from "../../components/user-menu/user-menu.component";
+import { CartContext } from "../../contexts/cart/cart.context";
 import { UserContext } from "../../contexts/user/user.context";
 import "./navigation.style.scss";
 
@@ -10,6 +11,7 @@ export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const {cartItems} = useContext(CartContext)
 
   const getCategories = useCallback(async () => {
     const response = await fetch("http://localhost:8000/categories");
@@ -100,7 +102,9 @@ export default function Navigation() {
               { userMenuOpen && <UserMenu/> }
             </div>
             <div className="nav-basket">
-              <i onClick={cartOpenHandler} class="fa-solid fa-cart-shopping"></i>
+              <i onClick={cartOpenHandler} class="fa-solid fa-cart-shopping">
+                <div className="cart-count">{cartItems.length}</div>
+              </i>
               { cartOpen && <Cart/>}
             </div>
           </div>

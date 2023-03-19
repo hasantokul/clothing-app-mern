@@ -1,17 +1,17 @@
 .cart-dropdown {
     width: 280px;
-    height: 280px;
+    height: auto;
     border: 1px solid gray;
     position: absolute;
     right: -30px;
     top: 60px;
     z-index: 2;
     background-color: white;
-    overflow-y: scroll;
     .items-list {
         width: 100%;
-        height: auto;
+        height: 240px;
         list-style: none;
+        overflow-y: scroll;
         .cart-item {
             width: 100%;
             height: auto;
@@ -80,6 +80,39 @@
                         color: rgb(184, 184, 184);
                     }
                 }
+            }
+        }
+        .cart-message {
+            display: inline-block;
+            margin-top: 120px;
+            margin-left: 140px;
+            transform: translateX(-50%) translateY(-50%);
+        }
+    }
+
+    .cart-info {
+        width: 100%;
+        height: 60px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid rgb(192, 192, 192);
+
+        .cart-total {
+            .amount {
+                color: rgb(61, 61, 61);
+                font-weight: 600;
+            }
+        }
+
+        .btn-checkout {
+            padding: 8px;
+            background-color: rgb(20, 20, 20);
+            color: white;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.9;
             }
         }
     }

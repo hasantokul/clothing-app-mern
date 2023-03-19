@@ -52,6 +52,22 @@
                 i.fa-cart-shopping {
                     cursor: pointer;
                     font-size: 20px;
+                    position: relative;
+                    .cart-count {
+                        position: absolute;
+                        right: -8px;
+                        top: -8px;
+                        width: 14px;
+                        height: 14px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 7px;
+                        border: 1px solid rgb(71, 71, 71);
+                        background-color: white;
+                        font-size: 8px;
+                        font-weight: bold;
+                    }
                 }
             }
             .nav-user {
