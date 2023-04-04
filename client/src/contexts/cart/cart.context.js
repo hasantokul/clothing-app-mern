@@ -3,7 +3,9 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext({
   cartItems: null,
   addItemToCart: () => null,
-  deleteItemFromCart: () => null
+  deleteItemFromCart: () => null,
+  cartOpen: null,
+  setCartOpen: () => null
 });
 
 const addItemToCartHelper = (cartItems, itemToAdd) => {
@@ -34,6 +36,7 @@ const getCartItems = () => {
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(getCartItems());
+  const [cartOpen, setCartOpen] = useState(false);
   console.log(cartItems);
 
   const addItemToCart = (itemToAdd) => {
@@ -51,7 +54,9 @@ export const CartProvider = ({ children }) => {
   const value = {
     cartItems,
     addItemToCart,
-    deleteItemFromCart
+    deleteItemFromCart,
+    cartOpen,
+    setCartOpen
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

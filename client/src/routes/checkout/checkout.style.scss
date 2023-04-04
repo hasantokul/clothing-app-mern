@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(240, 240, 240);
+}
+.checkout {
+    max-width: 1000px;
+    margin: auto;
+    height: auto;
+    .checkout-container {
+        width: 100%;
+        height: 800px;
+        background-color: white;
+    }
+}
